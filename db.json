@@ -1,0 +1,28 @@
+{
+  "news": [
+    {
+      "urlToImage": "https://static.toiimg.com/thumb/msid-74647809,width-1070,height-580,imgsize-1448365,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+      "title": "2020 Tata Harrier review: Upgraded with a dash of comfort - Times of India",
+      "author": "TIMESOFINDIA.COM",
+      "id": 1
+    },
+    {
+      "urlToImage": "https://static-news.moneycontrol.com/static-mcnews/2019/01/Grofers-final-770x433.png",
+      "title": "Coronavirus pandemic | BigBasket, Grofers orders rise 80-100% as people stay at home - Moneycontrol",
+      "author": null,
+      "id": 2
+    },
+    {
+      "urlToImage": "https://static-news.moneycontrol.com/static-mcnews/2019/11/Supreme-Court-3-770x433.jpg",
+      "title": "AGR case | DoT moves SC, seeks 20-year window for payment of dues - Moneycontrol",
+      "author": null,
+      "id": 3
+    },
+    {
+      "urlToImage": "https://static.toiimg.com/thumb/msid-74695435,width-1070,height-580,imgsize-146531,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+      "title": "Market crash wipes out Rs 15.72 lakh crore investor wealth in 3 days - Times of India",
+      "author": "PTI",
+      "id": 4
+    }
+  ]
+}

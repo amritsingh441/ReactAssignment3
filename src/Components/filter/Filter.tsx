@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 const Filter = (props:any) => {
     const [open,setOpen] = useState(false);
-    const [disabled, setDisabled]= useState(false);
+    const [disableCategory, setDisableCategory]= useState(false);
+    const [disableCountry, setDisableCountry]= useState(false);
     const [endpoints,setEndpoints] = useState('Select');
     const [country,setCountry] = useState('Select');
     const [category,setCategory] = useState('Select');
@@ -52,13 +53,19 @@ const Filter = (props:any) => {
   };
 
   const handleEndpointChange = (event: any) => {
-      console.log("in endpoints :: "+event.target);
       if(event.target.value === "/v2/sources" || event.target.value ==="/v2/everything"){
-        setDisabled(true);
-        setCountry("Select");
-        setCategory("Select");
+        if(event.target.value === "/v2/sources"){
+          setDisableCategory(true);
+          setCategory("Select");
+        }else{
+          setCountry("Select");
+          setCategory("Select");
+          setDisableCategory(true);
+          setDisableCountry(true);
+        }
       }else{
-        setDisabled(false);
+        setDisableCountry(false);
+        setDisableCategory(false);
       }
     setEndpoints(event.target.value as string);
   };
@@ -100,8 +107,9 @@ const handleFilterData = () => {
     console.log("category && ::"+newsServiceUrl)
   }
 
-  newsServiceUrl = newsServiceUrl+"apiKey=7b95fa856336437295a0ee3d0a53fd69";
-  console.log("url after api key  ::"+newsServiceUrl)
+ // newsServiceUrl = newsServiceUrl+"apiKey=7b95fa856336437295a0ee3d0a53fd69";  1fc0a77bf2bd494db21842f0a66d75bb
+ newsServiceUrl = newsServiceUrl+"apiKey=1fc0a77bf2bd494db21842f0a66d75bb"; 
+ console.log("url after api key  ::"+newsServiceUrl)
   if(pageSize){
     newsServiceUrl = newsServiceUrl + "&pagesize="+pageSize;
     console.log("url after api key  & pageSize ::"+newsServiceUrl)
@@ -152,7 +160,7 @@ const handlepageSizeValue = (event: any) => {
             labelId="demo-simple-select-outlined-label2"
             id="demo-simple-select-outlined2"
             value={country}
-            disabled={disabled}
+            disabled={disableCountry}
             onChange={handleCountryChange}  labelWidth={labelWidth}>
             <MenuItem  value={"Select"}>Select
             </MenuItem>
@@ -219,7 +227,7 @@ const handlepageSizeValue = (event: any) => {
             labelId="demo-simple-select-outlined-label3"
             id="demo-simple-select-outlined3"
             value={category}
-            disabled={disabled}
+            disabled={disableCategory}
             onChange={handleCategoryChange}  labelWidth={labelWidth}>
             <MenuItem  value={"Select"}>Select
             </MenuItem>

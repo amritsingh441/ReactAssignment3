@@ -14,7 +14,7 @@ import {
 function App() {
   const [token,setToken] = useState('');
   const [page,setPage] = useState('Dashboard');
-  const [servUrl,setServUrl] = useState('http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=7b95fa856336437295a0ee3d0a53fd69');
+  const [servUrl,setServUrl] = useState('http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1fc0a77bf2bd494db21842f0a66d75bb');
   const [pageSize,setPageSize] = useState('');
   const updateToken =(token:string) => {
     localStorage.setItem('token',token);

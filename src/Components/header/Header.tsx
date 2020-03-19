@@ -18,7 +18,8 @@ if(props.token){
   return  <Typography id = "tHeader1" component="div" variant="h3" align="center" gutterBottom>
           <Button variant="contained" color="primary" onClick ={() =>handlePageUpdate("Dashboard")}>Dashboard</Button>
           <Button variant="contained" color="primary" onClick ={() => handlePageUpdate("ReadNow")}>Read Now</Button>
-          <Filter/>
+          <div>
+          <Filter updateServiceUrl = {props.updateServiceUrl} updatePageSize= {props.updatePageSize}/></div>
           </Typography>
   
     }

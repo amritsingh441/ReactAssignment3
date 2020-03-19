@@ -14,6 +14,8 @@ import {
 function App() {
   const [token,setToken] = useState('');
   const [page,setPage] = useState('Dashboard');
+  const [servUrl,setServUrl] = useState('http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=7b95fa856336437295a0ee3d0a53fd69');
+  const [pageSize,setPageSize] = useState('');
   const updateToken =(token:string) => {
     localStorage.setItem('token',token);
     setToken(token)
@@ -21,13 +23,21 @@ function App() {
   const updatePage =(page:string) => {
     setPage(page)
   }
+const updateServiceUrl = (servUrl : string) => {
+  setServUrl(servUrl);
+}
+
+const updatePageSize = (pageSize : string) => {
+  setPageSize(pageSize);
+}
+
   return (
     <div>
       <Grid container direction = "column">
-      <Header token={token} updatePage={updatePage}></Header>
+      <Header token={token} updatePage={updatePage} updatePageSize = {updatePageSize} updateServiceUrl = {updateServiceUrl}></Header>
         <Router>
           <Route exact path = '/' component = {() =>(token)?<Redirect to = '/dashboard'></Redirect>: <Login updateToken = {updateToken} />} />
-          <Route exact path = '/dashboard' component = {() => (page=='ReadNow')?<Redirect to = '/readnow'></Redirect>: (token)?<Dashboard />:<Redirect to = '/'/> } />
+          <Route exact path = '/dashboard' component = {() => (page=='ReadNow')?<Redirect to = '/readnow'></Redirect>: (token)?<Dashboard url={servUrl} pageSize={pageSize}/>:<Redirect to = '/'/> } />
           <Route exact path = '/readnow' component = {() => (page=='Dashboard')?<Redirect to = '/dashboard'></Redirect>:(token)?<ReadNow />:<Redirect to = '/'/>} />
         </Router>
         <Footer></Footer>

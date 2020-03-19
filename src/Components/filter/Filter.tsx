@@ -29,14 +29,21 @@ const useStyles = makeStyles((theme: Theme) =>
       },
   }),
 );
-const Filter = () => {
+const Filter = (props:any) => {
     const [open,setOpen] = useState(false);
     const [disabled, setDisabled]= useState(false);
     const [endpoints,setEndpoints] = useState('Select');
     const [country,setCountry] = useState('Select');
     const [category,setCategory] = useState('Select');
+    const [qFiled, setQField] = useState('');
+    const [pageSize, setPageSizeValue] = useState('');
   const classes = useStyles();
   const handleClickOpen = () => {
+    setEndpoints('Select');
+    setCountry('Select');
+    setCategory('Select');
+    setQField('');
+    setPageSizeValue("20");
     setOpen(true);
   };
 
@@ -46,7 +53,7 @@ const Filter = () => {
 
   const handleEndpointChange = (event: any) => {
       console.log("in endpoints :: "+event.target);
-      if(event.target.value === "/v2/sources"){
+      if(event.target.value === "/v2/sources" || event.target.value ==="/v2/everything"){
         setDisabled(true);
         setCountry("Select");
         setCategory("Select");
@@ -56,14 +63,61 @@ const Filter = () => {
     setEndpoints(event.target.value as string);
   };
    const handleCountryChange = (event: any) => {
-    console.log("in country :: "+event.target);
     setCountry(event.target.value as string);
   };
 const handleCategoryChange = (event: any) => {
-  console.log("in country :: "+event.target);
   setCategory(event.target.value as string);
 };
-  const inputLabel = useRef<HTMLLabelElement>(null);
+
+const validatePageInput =(event:any) => {
+  if(event.target.value<20 || event.target.value>100){
+    if(event.target.value<20){
+      event.target.value = 20;
+    }else{
+      event.target.value = 100;
+    }
+}
+}
+
+const handleFilterData = () => {
+  let newsServiceUrl = "https://newsapi.org";
+  if(endpoints && endpoints!= "Select"){
+    newsServiceUrl = newsServiceUrl+endpoints+"?";
+    console.log("endpoints && ::"+newsServiceUrl)
+  }
+  if(endpoints!="/v2/Sources"){
+  if(qFiled!=undefined && qFiled.trim()!=''){
+    newsServiceUrl = newsServiceUrl+"q="+qFiled+"&";
+    console.log("qFiled && ::"+newsServiceUrl)
+  }
+  }
+  if(country && country!= "Select"){
+    newsServiceUrl = newsServiceUrl+"country="+country+"&";
+    console.log("country && ::"+newsServiceUrl)
+  }
+  if(category && category!= "Select"){
+    newsServiceUrl = newsServiceUrl+"category="+category+"&";
+    console.log("category && ::"+newsServiceUrl)
+  }
+
+  newsServiceUrl = newsServiceUrl+"apiKey=7b95fa856336437295a0ee3d0a53fd69";
+  console.log("url after api key  ::"+newsServiceUrl)
+  if(pageSize){
+    newsServiceUrl = newsServiceUrl + "&pagesize="+pageSize;
+    console.log("url after api key  & pageSize ::"+newsServiceUrl)
+  }
+props.updateServiceUrl(newsServiceUrl);
+props.updatePageSize(pageSize);
+handleClose();
+}
+const handleQfieldValue = (event: any) => {
+  setQField(event.target.value as string)
+};
+
+const handlepageSizeValue = (event: any) => {
+  setPageSizeValue(event.target.value as string)
+};
+
   const [labelWidth, setLabelWidth] = useState(0);
     return (<div className={classes.filterCls}>
     <Button variant="contained" color="primary" onClick={handleClickOpen}>
@@ -178,25 +232,29 @@ const handleCategoryChange = (event: any) => {
             <MenuItem value={"technology"}>Technology</MenuItem>
           </Select>
         </FormControl>
-        <br/>
+        <br/><br/>
         <FormControl>
         <label>q :</label>
-        <TextField id="qField" variant="outlined" />
+        <TextField id="qField" variant="outlined" onChange={handleQfieldValue} />
         </FormControl>
         <br/><br/>
         <FormControl>
         <label>Page Size :</label>
-        <TextField id="pageSizeField" variant="outlined" />
+        <TextField id="pageSizeField" type="number"
+        variant="outlined" defaultValue = "20"
+        onBlur={validatePageInput}
+        onChange={handlepageSizeValue}
+        inputProps={{min:"20",max:"100",step:"1"}}/>
         </FormControl>
-        <br/><br/>
-        <FormControl>
+        <br/>
+        {/* <FormControl>
         <label>Page :</label>
         <TextField id="pageField" variant="outlined" />
-        </FormControl>
+        </FormControl> */}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={handleClose} color="primary" autoFocus>
+          <Button id ="filterBtn" variant="contained" onClick={handleFilterData} color="primary" autoFocus>
             Apply
           </Button>
         </DialogActions>

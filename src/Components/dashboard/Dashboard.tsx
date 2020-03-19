@@ -5,9 +5,9 @@ import NewsService from '../../service/NewsService';
 import Card from '../../Components/displayCard/DisplayCard';
 import News from '../../model/News';
 
-const Dashboard = () => {
+const Dashboard = (props:any) => {
       const [news, setNews] = useState<News[]>([]);
-      const newsData = NewsService();
+      const newsData = NewsService(props.url);
       newsData.then(data => { return data }).then(res => {
             let newsObjList = [...res];
             if (news.length === 0) {

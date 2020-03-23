@@ -38,16 +38,18 @@ const Login = (porps:any) =>{
         <FormControl>
             <TextField placeholder = "User Name"
                         value = {username}
+                        id="userId"
                         name = "username"
                         onChange = {handleOnChange}
                         required></TextField>
             <TextField placeholder = "Password"
                         type = "password"
                         value = {password}
+                        id="usrPassword"
                         name = "password"
                         onChange = {handleOnChange}
                         required></TextField>
-            <Button onClick = {handleOnClick}>Login</Button>
+            <Button id="loginBtn" onClick = {handleOnClick}>Login</Button>
         </FormControl>
     </div>
 }

@@ -30,7 +30,7 @@ props.updatePage(pageName);
     return (<header className={classes.header}>
         <Container maxWidth="lg">
         <Typography id = "tHeader1" component="div" variant="h3" align="center" gutterBottom> 
-        The Telegraph Header
+        The Telegraph
         </Typography>
       </Container>
       <div>{buttonShowHide()}</div>

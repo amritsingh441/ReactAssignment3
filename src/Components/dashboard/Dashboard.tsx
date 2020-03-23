@@ -21,8 +21,8 @@ const Dashboard = (props:any) => {
             <Container maxWidth="lg">
               
                   <Typography id = "dashBoardHeading" component="div" variant="h6" align="center" gutterBottom>
-                        News of The Day
-                  <br />
+                        {/* News of The Day
+                  <br /> */}
                         {newsCardsList}
                   </Typography>
             </Container>)

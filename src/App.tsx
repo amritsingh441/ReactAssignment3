@@ -16,6 +16,8 @@ function App() {
   const [page,setPage] = useState('Dashboard');
   const [servUrl,setServUrl] = useState('http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1fc0a77bf2bd494db21842f0a66d75bb');
   const [pageSize,setPageSize] = useState('');
+  const [totalResult, setTotalResult] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const updateToken =(token:string) => {
     localStorage.setItem('token',token);
     setToken(token)
@@ -30,7 +32,6 @@ const updateServiceUrl = (servUrl : string) => {
 const updatePageSize = (pageSize : string) => {
   setPageSize(pageSize);
 }
-
   return (
     <div>
       <Grid container direction = "column">

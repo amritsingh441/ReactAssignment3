@@ -14,10 +14,11 @@ import {
 function App() {
   const [token,setToken] = useState('');
   const [page,setPage] = useState('Dashboard');
-  const [servUrl,setServUrl] = useState('http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1fc0a77bf2bd494db21842f0a66d75bb');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [servUrl,setServUrl] = useState('http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1fc0a77bf2bd494db21842f0a66d75bb'); //&page={currentPage}
   const [pageSize,setPageSize] = useState('');
   const [totalResult, setTotalResult] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+ 
   const updateToken =(token:string) => {
     localStorage.setItem('token',token);
     setToken(token)

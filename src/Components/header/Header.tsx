@@ -8,7 +8,10 @@ import Filter from '../filter/Filter';
 const useStyles = makeStyles(() => ({
     header: {
       backgroundColor: '#b3b3b3'
-    }
+    },
+    buttonCls:{
+      marginRight:'2vh'
+    },
   }));
 
 const Header = (props:any) => {
@@ -16,10 +19,9 @@ const Header = (props:any) => {
 const buttonShowHide=()=> {
 if(props.token){
   return  <Typography id = "tHeader2" component="div" variant="h3" align="center" gutterBottom>
-          <Button id="dashBoardBtn" variant="contained" color="primary" onClick ={() =>handlePageUpdate("Dashboard")}>Dashboard</Button>
-          <Button id="readNowBtn" variant="contained" color="primary" onClick ={() => handlePageUpdate("ReadNow")}>Read Now</Button>
-          <div>
-          <Filter updateServiceUrl = {props.updateServiceUrl} updatePageSize= {props.updatePageSize}/></div>
+          <Button className={classes.buttonCls} id="dashBoardBtn" variant="contained" color="primary" onClick ={() =>handlePageUpdate("Dashboard")}>Dashboard</Button>
+          <Button className={classes.buttonCls} id="readNowBtn" variant="contained" color="primary" onClick ={() => handlePageUpdate("ReadNow")}>Read Now</Button>
+          <Filter updateServiceUrl = {props.updateServiceUrl} updatePageSize= {props.updatePageSize}/>
           </Typography>
   
     }

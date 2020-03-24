@@ -88,21 +88,21 @@ const validatePageInput =(event:any) => {
 
 const handleFilterData = () => {
   let newsServiceUrl = "https://newsapi.org";
-  if(endpoints && endpoints!= "Select"){
+  if(endpoints && endpoints!== "Select"){
     newsServiceUrl = newsServiceUrl+endpoints+"?";
     console.log("endpoints && ::"+newsServiceUrl)
   }
   if(endpoints!="/v2/Sources"){
-  if(qFiled!=undefined && qFiled.trim()!=''){
+  if(qFiled!==undefined && qFiled.trim()!==''){
     newsServiceUrl = newsServiceUrl+"q="+qFiled+"&";
     console.log("qFiled && ::"+newsServiceUrl)
   }
   }
-  if(country && country!= "Select"){
+  if(country && country!== "Select"){
     newsServiceUrl = newsServiceUrl+"country="+country+"&";
     console.log("country && ::"+newsServiceUrl)
   }
-  if(category && category!= "Select"){
+  if(category && category!== "Select"){
     newsServiceUrl = newsServiceUrl+"category="+category+"&";
     console.log("category && ::"+newsServiceUrl)
   }

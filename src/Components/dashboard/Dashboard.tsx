@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container';
 import NewsService from '../../service/NewsService';
 import Card from '../../Components/displayCard/DisplayCard';
 import News from '../../model/News';
+import Grid from '@material-ui/core/Grid';
 
 const Dashboard = (props:any) => {
       const [news, setNews] = useState<News[]>([]);
@@ -16,16 +17,17 @@ const Dashboard = (props:any) => {
       })
       let newsCardsList = news.map((newsData: News) =>
             <Card key={newsData.urlToImage} nData={newsData}></Card>)
-      return (
-          
-            <Container maxWidth="lg">
+      return (<Grid container  direction = "row" sm={12} alignItems="center" justify="space-evenly">
+            {/* <Container maxWidth="lg"> */}
               
-                  <Typography id = "dashBoardHeading" component="div" variant="h6" align="center" gutterBottom>
+                  {/* <Typography id = "dashBoardHeading" component="div" variant="h6" align="center" gutterBottom> */}
                         {/* News of The Day
                   <br /> */}
                         {newsCardsList}
-                  </Typography>
-            </Container>)
+                  {/* </Typography> */}
+                 
+            {/* </Container> */}
+            </Grid>)
 
 }
 export default Dashboard;

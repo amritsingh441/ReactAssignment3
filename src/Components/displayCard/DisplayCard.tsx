@@ -5,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
 import SaveNews from '../../service/SaveNews';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import CardActions from '@material-ui/core/CardActions/CardActions';
 
 const useStyles = makeStyles({
     media: {
@@ -14,17 +17,25 @@ const useStyles = makeStyles({
 
 const DisplayCard = (props:any) => {  
     const classes = useStyles();  
-return <div>
-        <Card >
+return <Grid item sm={4} container direction = "row">
+
+    <Card className="col-lg-3 col-md-6 col-sm-12">
             <CardContent>
-            <CardMedia   className={classes.media} image={props.nData.urlToImage} id="imageUrl"></CardMedia>
+            <CardMedia  title={props.nData.title}  className={classes.media} image={props.nData.urlToImage} id="imageUrl"></CardMedia>
                 {/* <img alt="" id="imageUrl" src={props.nData.urlToImage}/> */}
-                <p id="title">{props.nData.title}</p>
-                <div id="author">{props.nData.author}</div>
-                <Button variant="contained" color="primary" onClick ={() => SaveNews(props.nData)}>Add To Favourites</Button>
+                {/* <p id="title">{props.nData.title}</p> */}
+                <Typography id = "tHeader2" component="p" variant="body2" color="textSecondary">
+                {props.nData.title} <br/>
+                {props.nData.author}
+                {/* <p id="author">{props.nData.author}</p> */}
+                </Typography>
+                <CardActions>
+                <Button variant="contained" color="primary" onClick ={() => SaveNews(props.nData)}>Read Later</Button>
+             </CardActions>
+               
             </CardContent>
         </Card>
-    </div>
+   </Grid> 
 }
 
 export default DisplayCard;

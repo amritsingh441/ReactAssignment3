@@ -6,23 +6,25 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(() => ({
   footer: {
     backgroundColor: '#b3b3b3',
-    marginTop:'37vh'
+    marginTop:'45vh',
+    height:'8vh'
   },
 }));
 
 const Footer = () => {
   const classes = useStyles();
     return (
-        <footer className={classes.footer}>
-          <Container maxWidth="lg">
-            <Typography id="footer1" variant="subtitle1" color="textSecondary" align="center" gutterBottom>
-             Copyright info @Telegraph
+        <div className={classes.footer}>
+          {/* <Container maxWidth="lg"> */}
+            <Typography id="footer1" variant="subtitle1" color="textSecondary" align="center" component="p" gutterBottom>
+             {/* Copyright info @Telegraph */}
+             All Rights Reserved @The Telegraph & co. 2020.
             </Typography>
-            <Typography id="footer2" variant="subtitle1" align="center" color="textSecondary" component="p">
+            {/* <Typography id="footer2" variant="subtitle1" align="center" color="textSecondary" component="p" gutterBottom>
                   All Rights Reserved @The Telegraph & co. 2020.                                 
-            </Typography>
-          </Container>
-        </footer>
+            </Typography> */}
+          {/* </Container> */}
+        </div>
       );
 }
 

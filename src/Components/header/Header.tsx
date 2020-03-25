@@ -10,34 +10,35 @@ const useStyles = makeStyles(() => ({
       backgroundColor: '#b3b3b3'
     },
     buttonCls:{
-      marginRight:'2vh'
-    },
+     
+    }
   }));
 
 const Header = (props:any) => {
   const classes = useStyles();
 const buttonShowHide=()=> {
 if(props.token){
-  return  <Typography id = "tHeader2" component="div" variant="h3" align="center" gutterBottom>
-          <Button className={classes.buttonCls} id="dashBoardBtn" variant="contained" color="primary" onClick ={() =>handlePageUpdate("Dashboard")}>Dashboard</Button>
-          <Button className={classes.buttonCls} id="readNowBtn" variant="contained" color="primary" onClick ={() => handlePageUpdate("ReadNow")}>Read Now</Button>
+  return <div id = "tHeader2">
+  {/* <Typography id = "tHeader2" component="div" variant="h3"> */}
+          <Button style={{marginLeft:'auto'}} id="dashBoardBtn" variant="contained" color="primary" onClick ={() =>handlePageUpdate("Dashboard")}>Dashboard</Button>
+          <Button style={{marginLeft:'5em'}} id="readNowBtn" variant="contained" color="primary" onClick ={() => handlePageUpdate("ReadNow")}>Read Now</Button>
           <Filter updateServiceUrl = {props.updateServiceUrl} updatePageSize= {props.updatePageSize}/>
-          </Typography>
+          {/* </Typography> */}
+          </div>
   
     }
 };
 const handlePageUpdate = (pageName : String) => {
 props.updatePage(pageName);
 };
-    return (<header className={classes.header}>
-        <Container maxWidth="lg">
-        <Typography id = "tHeader1" component="div" variant="h3" align="center" gutterBottom> 
+    return (<div className={classes.header}>
+        {/* <Container maxWidth="lg"> */}
+        <Typography id = "tHeader1" component="div" variant="h4" align="center" gutterBottom> 
         The Telegraph
-        {buttonShowHide()}
+         {buttonShowHide()}
         </Typography>
-      </Container>
-     
-    </header>);
+      {/* </Container> */}
+    </div>);
 }
 
 export default Header;

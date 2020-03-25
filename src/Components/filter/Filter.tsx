@@ -24,9 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
-    filterCls: {
-        backgroundColor: '#b3b3b3'
-      },
+    
   }),
 );
 const Filter = (props:any) => {
@@ -127,7 +125,7 @@ const handlepageSizeValue = (event: any) => {
 };
 
   const [labelWidth, setLabelWidth] = useState(0);
-    return (<div className={classes.filterCls}>
+    return (<div style={{ backgroundColor: '#b3b3b3',float:'right',marginBottom:'0em',marginRight:'5em'}}>
     <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Apply Filter
       </Button>

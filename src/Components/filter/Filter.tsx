@@ -53,8 +53,10 @@ const Filter = (props:any) => {
   const handleEndpointChange = (event: any) => {
       if(event.target.value === "/v2/sources" || event.target.value ==="/v2/everything"){
         if(event.target.value === "/v2/sources"){
-          setDisableCategory(true);
           setCategory("Select");
+          setCountry("Select");
+          setDisableCategory(true);
+          setDisableCountry(false);
         }else{
           setCountry("Select");
           setCategory("Select");

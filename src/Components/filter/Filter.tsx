@@ -125,7 +125,7 @@ const handlepageSizeValue = (event: any) => {
 };
 
   const [labelWidth, setLabelWidth] = useState(0);
-    return (<div style={{ backgroundColor: '#b3b3b3',float:'right',marginBottom:'0em',marginRight:'5em'}}>
+    return (<div style={{ backgroundColor: '#b3b3b3'}}>
     <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Apply Filter
       </Button>

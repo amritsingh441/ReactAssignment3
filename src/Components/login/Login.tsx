@@ -6,7 +6,8 @@ import {LoginService} from '../../service/LoginService';
 const useStyles = makeStyles(() => 
 createStyles({
     root:{
-        marginTop:80,
+        marginTop:'25vh',
+        marginBottom:'46vh',
         textAlign:'center'
     }
 }))

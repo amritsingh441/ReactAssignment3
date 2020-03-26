@@ -5,9 +5,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(() => ({
   footer: {
-    backgroundColor: '#b3b3b3',
-    marginTop:'45vh',
-    height:'8vh'
+    backgroundColor: 'cadetblue',
+    height:'8vh',
+    position:'fixed',
+    marginTop:'94vh',
+    width:'100%'
   },
 }));
 

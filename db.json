@@ -53,6 +53,24 @@
       "title": "NBC’s experimental PGA Tour live stream makes it easier to follow your favorite golfer",
       "author": "Cameron Faulkner",
       "id": 9
+    },
+    {
+      "urlToImage": "https://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2019/10/oneplus-8-pro-render-1.jpg?itok=O5oYkZef",
+      "title": "OnePlus 8 and 8 Pro full specs revealed in new leak - Android Central",
+      "author": "Babu Mohan",
+      "id": 10
+    },
+    {
+      "urlToImage": "https://static-news.moneycontrol.com/static-mcnews/2018/08/US-senate-770x433.jpg",
+      "title": "US Senate passes historic $2 trillion bill to stimulate US economy - Moneycontrol",
+      "author": null,
+      "id": 11
+    },
+    {
+      "urlToImage": "https://static.toiimg.com/thumb/msid-74821139,width-1070,height-580,imgsize-1147371,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+      "title": "Coronavirus latest updates: Total cases in India stood at 656; ​Kashmir reports first coronavirus death - Times of India",
+      "author": "TIMESOFINDIA.COM",
+      "id": 12
     }
   ]
 }

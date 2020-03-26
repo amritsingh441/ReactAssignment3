@@ -17,18 +17,19 @@ const useStyles = makeStyles({
 
 const DisplayCard = (props:any) => {  
     const classes = useStyles();  
-return <Grid item sm={3} container direction = "row">
+return <Grid item sm={3} container direction = "row" alignItems="center" justify="space-evenly">
     <Card>
             <CardContent>
             <CardMedia className={classes.media} image={props.nData.urlToImage} id="imageUrl"></CardMedia>
                 <Typography id = "tHeader2" component="p" variant="body2" color="textSecondary">
-                {props.nData.title} </Typography>
+                {props.nData.title} 
+                </Typography>
                 <Typography id = "tHeader3" component="p" variant="body2" color="textSecondary">
                 Author : {props.nData.author}
                 </Typography>
                 <CardActions>
-                <Button variant="contained" color="primary" onClick ={() => SaveNews(props.nData)}>Read Later</Button>
-             </CardActions> 
+                <Button size="small" variant="contained" color="primary" onClick ={() => SaveNews(props.nData)}>Read Later</Button>
+             </CardActions>  
             </CardContent>
         </Card>
    </Grid> 

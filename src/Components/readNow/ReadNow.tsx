@@ -20,16 +20,8 @@ const ReadNow = () => {
       let newsCardsList = news.map((newsData: News) =>
             <Card key={newsData.urlToImage} nData={newsData}></Card>)
       return (
-            <Grid container  direction = "row" sm={12} alignItems="center" justify="space-evenly">
-            {/* <Container maxWidth="lg"> */}
-              
-                  {/* <Typography id = "dashBoardHeading" component="div" variant="h6" align="center" gutterBottom> */}
-                        {/* News of The Day
-                  <br /> */}
+            <Grid container  direction = "row" item sm={12} alignItems="center" justify="space-evenly" style={{marginTop:'16vh'}}>
                         {newsCardsList}
-                  {/* </Typography> */}
-                 
-            {/* </Container> */}
             </Grid>
             )
 

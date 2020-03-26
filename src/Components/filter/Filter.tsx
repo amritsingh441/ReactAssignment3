@@ -106,7 +106,7 @@ const handleFilterData = () => {
   }
 
  // newsServiceUrl = newsServiceUrl+"apiKey=7b95fa856336437295a0ee3d0a53fd69";  1fc0a77bf2bd494db21842f0a66d75bb
- newsServiceUrl = newsServiceUrl+"apiKey=1fc0a77bf2bd494db21842f0a66d75bb"; 
+ newsServiceUrl = newsServiceUrl+"apiKey=7b95fa856336437295a0ee3d0a53fd69"; 
  console.log("url after api key  ::"+newsServiceUrl)
   if(pageSize){
     newsServiceUrl = newsServiceUrl + "&pagesize="+pageSize;
@@ -125,8 +125,8 @@ const handlepageSizeValue = (event: any) => {
 };
 
   const [labelWidth, setLabelWidth] = useState(0);
-    return (<div style={{ backgroundColor: '#b3b3b3'}}>
-    <Button variant="contained" color="primary" onClick={handleClickOpen}>
+    return (<div>
+    <Button size="small" variant="contained" onClick={handleClickOpen}>
         Apply Filter
       </Button>
        <Dialog
